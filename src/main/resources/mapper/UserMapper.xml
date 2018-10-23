@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="User">
+        <id column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="nickname" property="nickname" />
+        <result column="password" property="password" />
+        <result column="sex" property="sex" />
+        <result column="type" property="type" />
+        <result column="islock" property="islock" />
+        <result column="status" property="status" />
+    </resultMap>
+
+    <resultMap id="UserRoleMap" type="UserAndRole" extends="BaseResultMap">
+        <collection property="name" ofType="java.lang.String" javaType="java.util.ArrayList">
+            <result column="name" jdbcType="VARCHAR" property="name"/>
+        </collection>
+    </resultMap>
+    <delete id="deleteById">
+        DELETE FROM user WHERE id=#{id} and username='zxt1'
+    </delete>
+
+
+
+    <select id="getUserAndRole" resultMap="UserRoleMap">
+        SELECT
+        user.*,
+        role.name
+        FROM user,role,user_role
+        WHERE
+        user.id=user_role.uid
+        AND
+        user_role.rid=role.id
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT * FROM user;
+    </select>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, username, nickname, password, sex, type, islock, status
+    </sql>
+
+</mapper>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>ShowVideo</title>
+</head>
+<body>
+
+<!--<video width="320" height="240" controls="controls">-->
+    <!--<source th:src="@{/1.mp4}" type="video/mp4">-->
+    <!--Your browser does not support the video tag.-->
+<!--</video>-->
+<!--<video width="320" height="240" controls="controls">-->
+    <!--<source th:src="@{/2.mp4}" type="video/mp4">-->
+    <!--Your browser does not support the video tag.-->
+<!--</video>-->
+<!--<video width="320" height="240" controls="controls">-->
+    <!--<source th:src="@{/3.mp4}" type="video/mp4">-->
+    <!--Your browser does not support the video tag.-->
+<!--</video>-->
+<!--<video width="320" height="240" controls="controls">-->
+    <!--<source th:src="@{/4.mp4}" type="video/mp4">-->
+    <!--Your browser does not support the video tag.-->
+<!--</video>-->
+<!--<video width="320" height="240" controls="controls">-->
+    <!--<source th:src="@{/5.mp4}" type="video/mp4">-->
+    <!--Your browser does not support the video tag.-->
+<!--</video>-->
+<video width="320" height="240" controls="controls">
+    <source th:src="${file}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+</body>
+</html>
