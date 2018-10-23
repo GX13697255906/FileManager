@@ -3,7 +3,6 @@ package com.cn.serviceImpl;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.cn.entity.User;
-import com.cn.entity.UserAndRole;
 import com.cn.mapper.UserMapper;
 import com.cn.service.IUserService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
@@ -46,10 +45,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         entityWrapper.like("username","z").like("nickname","a");
         result = baseMapper.selectPage(page,entityWrapper);
         return result;
-    }
-
-    public List<UserAndRole> getUserAndRole(){
-        return baseMapper.getUserAndRole();
     }
 
     public List<User> getUseOrderById(){

@@ -2,7 +2,6 @@ package com.cn.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.cn.entity.User;
-import com.cn.entity.UserAndRole;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -17,8 +16,6 @@ import java.util.List;
  * @since 2018-08-23
  */
 public interface UserMapper extends BaseMapper<User> {
-
-   List<UserAndRole> getUserAndRole();
 
    Integer deleteById(@Param("id") String id);
 

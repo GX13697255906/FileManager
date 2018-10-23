@@ -63,9 +63,9 @@ public class MpGenerator {
             }
         });
         dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("123456");
-        dsc.setUrl("jdbc:mysql://172.16.10.59:3306/alldo_edu?characterEncoding=utf8");
+        dsc.setUsername("root1");
+        dsc.setPassword("root1");
+        dsc.setUrl("jdbc:mysql://39.105.34.228:3306/filemanager?characterEncoding=utf8");
         mpg.setDataSource(dsc);
 
         // 策略配置
@@ -98,7 +98,7 @@ public class MpGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setParent("com");
-        pc.setModuleName("alldobetter.edu");
+        pc.setModuleName("cn");
         pc.setController("controller");
         pc.setEntity("entity");
         pc.setMapper("mapper");

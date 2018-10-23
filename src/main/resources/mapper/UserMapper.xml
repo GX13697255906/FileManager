@@ -14,27 +14,12 @@
         <result column="status" property="status" />
     </resultMap>
 
-    <resultMap id="UserRoleMap" type="UserAndRole" extends="BaseResultMap">
-        <collection property="name" ofType="java.lang.String" javaType="java.util.ArrayList">
-            <result column="name" jdbcType="VARCHAR" property="name"/>
-        </collection>
-    </resultMap>
+
     <delete id="deleteById">
         DELETE FROM user WHERE id=#{id} and username='zxt1'
     </delete>
 
 
-
-    <select id="getUserAndRole" resultMap="UserRoleMap">
-        SELECT
-        user.*,
-        role.name
-        FROM user,role,user_role
-        WHERE
-        user.id=user_role.uid
-        AND
-        user_role.rid=role.id
-    </select>
     <select id="selectAll" resultMap="BaseResultMap">
         SELECT * FROM user;
     </select>

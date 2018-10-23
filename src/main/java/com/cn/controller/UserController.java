@@ -2,12 +2,9 @@ package com.cn.controller;
 
 
 import com.cn.entity.User;
-import com.cn.entity.UserAndRole;
 import com.cn.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
@@ -50,11 +47,6 @@ public class UserController {
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public boolean addUser(@RequestBody User user){
         return userService.insert(user);
-    }
-
-    @RequestMapping(value = "/ur",method = RequestMethod.GET)
-    public List<UserAndRole> getUr(){
-        return userService.getUserAndRole();
     }
 
     @RequestMapping(value = "/all")

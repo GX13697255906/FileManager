@@ -2,7 +2,6 @@ package com.cn.service;
 
 import com.baomidou.mybatisplus.service.IService;
 import com.cn.entity.User;
-import com.cn.entity.UserAndRole;
 
 import java.util.List;
 
@@ -21,8 +20,6 @@ public interface IUserService extends IService<User> {
     List<User> getUseOrderById();
 
     List<User> getUserByCredict(Integer currentPage, Integer pageSize);
-
-    List<UserAndRole> getUserAndRole();
 
     List<User> findAllUsers();
 
