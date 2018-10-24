@@ -3,6 +3,7 @@ package com.cn.controller;
 
 import com.cn.entity.User;
 import com.cn.service.IUserService;
+import com.cn.util.LogHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,6 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/user")
 public class UserController {
-
     @Autowired
     private IUserService userService;
 
@@ -33,11 +33,24 @@ public class UserController {
         System.out.println("id = "+id);
         userService.delById(id);
     }
- 
+
+
+
+
+
+
+
     @RequestMapping(value = "/alls")
     public List<User> findAllUser(){
+        System.out.println("----------------------------------------------");
+        LogHelper.log(new UserController());
+        System.out.println("----------------------------------------------");
         return userService.findAllUsers();
     }
+
+
+
+
 
     @RequestMapping(value = "/order",method = RequestMethod.GET)
     public List<User> orderById(){
