@@ -23,10 +23,33 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
+
     @RequestMapping(value = "/get/id/{id}",method = RequestMethod.GET)
     public User getById(@PathVariable("id") String id){
+        System.out.println("-----------------------getById---------------------------");
+        LogHelper.log(new UserController());
+        System.out.println("-----------------------getById---------------------------");
         return userService.selectById(id);
     }
+
+    @RequestMapping(value = "/add",method = RequestMethod.POST)
+    public boolean addUser(@RequestBody User user){
+        System.out.println("-----------------------addUser---------------------------");
+        return userService.insert(user);
+    }
+
+    @RequestMapping(value = "/alls")
+    public List<User> findAllUser(){
+        System.out.println("-----------------findAllUser-----------------------------");
+        LogHelper.log(new UserController());
+        System.out.println("-----------------findAllUser-----------------------------");
+        return userService.findAllUsers();
+    }
+
+
+
+
+
 
     @RequestMapping(value = "/del/{id}")
     public void delById(@PathVariable("id") String id){
@@ -35,32 +58,11 @@ public class UserController {
     }
 
 
-
-
-
-
-
-    @RequestMapping(value = "/alls")
-    public List<User> findAllUser(){
-        System.out.println("----------------------------------------------");
-        LogHelper.log(new UserController());
-        System.out.println("----------------------------------------------");
-        return userService.findAllUsers();
-    }
-
-
-
-
-
     @RequestMapping(value = "/order",method = RequestMethod.GET)
     public List<User> orderById(){
         return userService.getUseOrderById();
     }
 
-    @RequestMapping(value = "/add",method = RequestMethod.POST)
-    public boolean addUser(@RequestBody User user){
-        return userService.insert(user);
-    }
 
     @RequestMapping(value = "/all")
     public List<User> findAll(){
