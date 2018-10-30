@@ -5,11 +5,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.InputStream;
+import java.util.Map;
 
 public class LogHandlerInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("--------------preHandle-------------");
+        HttpServletRequest requestWrapper = request;
         String method = request.getMethod();
         LogHelper.type = method;
         System.out.println("method = "+method);
